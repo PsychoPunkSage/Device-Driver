@@ -19,7 +19,15 @@ Run `brew install --cask multipass`
 
 ## Instance creation:
 
-> `multipass shell` : Prepare primary instance in background.
+| Command                                                                | Reason                                                                                                                         |
+| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `multipass shell`                                                      | Prepare primary instance in background.<br>                                                                                    |
+| `sudo vim /etc/ssh/sshd_config`                                        | 1. `:set nu` : to get line numbers in shell <br> 2. go to `line 61` i.e. `KeyboardInteractiveAuthentication` - turn it **yes** |
+| `sudo systemctl daemon-reload`                                         | reload daemon with new config                                                                                                  |
+| `sudo service ssh restart`                                             | restart ssh service                                                                                                            |
+| `sudo passwd [username]`                                               | to set password for your instance                                                                                              |
+| `hostname -I`                                                          | Get the IP Address                                                                                                             |
+| Create SSH connection using **`Remote Explorer`** extension in VS-Code | Add `SSH` connection like this `ubuntu@[IP-ADDRESS]`                                                                           |
 
 <details>
 
@@ -59,17 +67,3 @@ See https://ubuntu.com/esm or run: sudo pro status
 ubuntu@primary:~$
 ```
 </details>
-
-> `sudo vim /etc/ssh/sshd_config`: 
->   - `:set nu` : to get line numbers in shell
->   - go to `line 61` i.e. `KeyboardInteractiveAuthentication` - turn it **yes**
-
-> `sudo systemctl daemon-reload`: reload daemon with new config.
-
-> `sudo service ssh restart`: restart ssh service
-
-> `sudo passwd [username]`: to set password for your instance.
-
-> `hostname -I`: Get the IP Address
-
-> Create SSH connection using `**Remote Explorer**` extension in VS-Code. Add `SSH` connection like this `ubuntu@[IP-ADDRESS]`
