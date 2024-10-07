@@ -12,8 +12,17 @@ static struct proc_dir_entry *custom_proc_entry; // <https://github.com/torvalds
 static ssize_t pps_read(struct file *file_pointer, char *user_space_buffer, size_t count, loff_t *offset)
 {
     // Kernel will provide all the above params
+    char msg[] = "Yoiii!!\n";
+    size_t /* Standard size CPU can handle */ len = strlen(msg);
+    int res;
+
     printk("[PPS] module Read\n");
-    return 0;
+
+    if (*offset >= len)
+        return 0; // Keep track of location to read from in given buffer
+    res = copy_to_user(/*dst*/ user_space_buffer, /*src*/ msg, /*no_of_bytes*/ len);
+    *offset += len;
+    return len; // need to return no. of bytes we are writing to `user space`
 }
 
 struct proc_ops pps_proc_ops = {
