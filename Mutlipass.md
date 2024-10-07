@@ -67,3 +67,10 @@ See https://ubuntu.com/esm or run: sudo pro status
 ubuntu@primary:~$
 ```
 </details>
+
+## Incase of Error
+> Suppose we tried to inject the `Kernel module` and due to some issue we screw up (some process end up using our `module`)... the best thing to do is to reboot the machine:
+
+```sh
+multipass stop <username>
+```

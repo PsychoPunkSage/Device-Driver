@@ -8,10 +8,11 @@
 **`dtb`**: (Device Tree Blob) used to tell kernel about system hardware. It contains information about all the hardware and their memory location. (reside in `SSD/HDD` and its address in present in `CPU Registry`)
 
 ## Instruments:
-| Tools     | Reason                                                                             |
-| --------- | ---------------------------------------------------------------------------------- |
-| ssh       | connect coding env with our Machine.                                               |
-| Multipass | Cmd-line tool to create environment ([Installation + Setup Guide](./Mutlipass.md)) |
+| Tools      | Reason                                                                             |
+| ---------- | ---------------------------------------------------------------------------------- |
+| ssh        | connect coding env with our Machine.                                               |
+| Multipass  | cmd-line tool to create environment ([Installation + Setup Guide](./Mutlipass.md)) |
+| proc files | to implement `read()` and `write()` functions                                      |
 
 
 ## Utilities:
